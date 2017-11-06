@@ -15,6 +15,7 @@ namespace MvcClient
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
+            Console.Title = "MVC Client";
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

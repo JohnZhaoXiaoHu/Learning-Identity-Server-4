@@ -43,6 +43,27 @@ namespace AuthServer.Configuration
                         "socialnetwork"
                     },
                     AllowAccessTokensViaBrowser = true
+                },
+                new Client
+                {
+                    ClientId = "mvc_code",
+                    ClientName = "MVC Code Client",
+                    AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    RedirectUris = { "http://localhost:5002/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:5002/signout-callback-oidc" },
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "socialnetwork"
+                    },
+                    AllowOfflineAccess = true,
+                    AllowAccessTokensViaBrowser = true
                 }
             };
         }

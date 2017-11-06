@@ -33,13 +33,15 @@ namespace MvcClient
             .AddOpenIdConnect("oidc", options =>
             {
                 options.SignInScheme = "Cookies";
-
                 options.Authority = "http://localhost:5000";
                 options.RequireHttpsMetadata = false;
-
-                options.ClientId = "mvc_implicit";
-                options.ResponseType = "id_token token";
+                options.ClientId = "mvc_code";
+                options.ClientSecret = "secret";
+                options.ResponseType = "id_token code";
+                options.Scope.Add("socialnetwork");
+                options.Scope.Add("offline_access");
                 options.SaveTokens = true;
+                options.GetClaimsFromUserInfoEndpoint = true;
             });
         }
 

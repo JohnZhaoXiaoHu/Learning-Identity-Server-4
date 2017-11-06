@@ -15,6 +15,7 @@ namespace AuthServer
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
+            Console.Title = "Authorization Server";
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

@@ -15,6 +15,7 @@ namespace WebApi
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
+            Console.Title = "Web API";
         }
 
         public static IWebHost BuildWebHost(string[] args) =>

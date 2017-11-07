@@ -18,7 +18,7 @@ namespace AuthServer
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 //.AddSigningCredential(new X509Certificate2(@"D:\Projects\test\socialnetwork.pfx", "Bx@steel"))
-                .AddInMemoryIdentityResources(InMemoryConfiguration.GetIdentityResources())
+                .AddInMemoryIdentityResources(InMemoryConfiguration.IdentityResources())
                 .AddTestUsers(InMemoryConfiguration.Users().ToList())
                 .AddInMemoryClients(InMemoryConfiguration.Clients())
                 .AddInMemoryApiResources(InMemoryConfiguration.ApiResources());

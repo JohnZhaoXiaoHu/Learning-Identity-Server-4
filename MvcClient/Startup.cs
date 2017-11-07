@@ -40,6 +40,7 @@ namespace MvcClient
                 options.ResponseType = "id_token code";
                 options.Scope.Add("socialnetwork");
                 options.Scope.Add("offline_access");
+                options.Scope.Add("email");
                 options.SaveTokens = true;
                 options.GetClaimsFromUserInfoEndpoint = true;
             });

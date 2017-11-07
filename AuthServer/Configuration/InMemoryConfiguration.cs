@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using IdentityServer4;
 using IdentityServer4.Models;
@@ -15,6 +16,9 @@ namespace AuthServer.Configuration
             return new[]
             {
                 new ApiResource("socialnetwork", "社交网络")
+                {
+                    UserClaims = new [] { "email" }
+                }
             };
         }
 
@@ -68,12 +72,13 @@ namespace AuthServer.Configuration
             };
         }
 
-        public static IEnumerable<IdentityResource> GetIdentityResources()
+        public static IEnumerable<IdentityResource> IdentityResources()
         {
             return new List<IdentityResource>
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResources.Email()
             };
         }
 
@@ -85,7 +90,8 @@ namespace AuthServer.Configuration
                 {
                     SubjectId = "1",
                     Username = "mail@qq.com",
-                    Password = "password"
+                    Password = "password",
+                    Claims = new [] { new Claim("email", "mail@qq.com") }
                 }
             };
         }

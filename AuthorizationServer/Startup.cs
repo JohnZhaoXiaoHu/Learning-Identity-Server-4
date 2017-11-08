@@ -57,7 +57,8 @@ namespace AuthorizationServer
             services.AddMvc();
             
             services.AddIdentityServer()
-                .AddSigningCredential(new X509Certificate2(@"D:\Projects\test\socialnetwork.pfx", "Bx@steel"))
+                .AddDeveloperSigningCredential()
+                // .AddSigningCredential(new X509Certificate2(@"D:\Projects\test\socialnetwork.pfx", "password"))
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = builder =>
